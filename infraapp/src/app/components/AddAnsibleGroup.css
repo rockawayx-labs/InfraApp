@@ -1,0 +1,88 @@
+.add-ansible-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: grey;
+}
+
+.add-ansible-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: white; /* If labels are white in color */
+}
+
+.add-ansible-group input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.add-ansible-group div {
+  margin-bottom: 15px;
+}
+
+/* Styling specific to software checkboxes */
+.add-ansible-group .software-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.add-ansible-group .software-checkbox label {
+  cursor: pointer; /* Change cursor to pointer on hover over label */
+}
+
+.add-ansible-group #ecosystem {
+  background-color: #444; /* Gray background */
+  color: white; /* White text */
+}
+.add-ansible-group form {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #333;
+  color: white;
+  max-width: 500px;
+  width: 100%;
+}
+
+.add-ansible-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: larger;
+}
+
+.add-ansible-group input[type="text"],
+.add-ansible-group select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+}
+
+.add-ansible-group select {
+  height: auto;
+}
+
+.add-ansible-group select[multiple] {
+  height: 100px;
+  overflow-y: auto;
+}
+
+.add-ansible-group button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: larger;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.add-ansible-group button:hover {
+  background-color: #0056b3;
+}

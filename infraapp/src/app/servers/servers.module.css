@@ -1,0 +1,147 @@
+.serversPage {
+  padding: 20px;
+  background-color: #282c34; /* Setting the background color */
+  min-height: 100vh; /* Ensure it covers the full height of the page */
+  color: #fff; /* Adjusting the text color for better readability */
+}
+.serversContainer {
+  margin-top: 20px;
+}
+
+.serverTable {
+  margin-top: 30px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.serverTable .link {
+  color: white; /* or any other color you prefer for the normal state */
+  text-decoration: none; /* to ensure it doesn't look like a link by default */
+  cursor: pointer; /* changes cursor to indicate it's clickable */
+}
+
+.serverTable .link:hover {
+  color: blue; /* classic link color when hovered */
+  text-decoration: underline; /* underlines the text on hover */
+}
+
+.deleteIcon {
+  cursor: pointer;
+  color: darkred;
+  padding: 5px;
+}
+
+.deleteIcon:hover {
+  color: red;
+}
+
+.serverTable th,
+.serverTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.serverTable th {
+  background-color: #add8e6; /* Light blue background for header */
+  color: black;
+}
+
+.serverTable tr {
+  background-color: black; /* Black background for rows */
+  color: white; /* White text */
+}
+
+.serverTable tr:nth-child(even) {
+  background-color: black; /* Ensure even rows are also black */
+}
+
+.serverTable tr:hover {
+  background-color: #666; /* Slightly lighter black for hover */
+}
+
+.addServerLink {
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Styles for the Modal */
+.modal {
+  position: fixed;
+  z-index: 2; /* Ensures modal is above other content */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.6); /* Dimmed background */
+}
+
+.modalContent {
+  background-color: #282c34;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #ddd;
+  width: 60%; /* Could be adjusted based on preference */
+  border-radius: 10px;
+}
+
+.modalContent h2 {
+  color: #add8e6;
+}
+
+.modalContent ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modalContent ul li {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.modalContent ul li:hover {
+  background-color: #444;
+}
+
+.modalContent button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.updateButton {
+  position: absolute;
+  top: 120px; /* Adjust as needed based on the size of the first button */
+  right: 10px; /* Align with the right side like the first button */
+  padding: 10px; /* Padding inside the button */
+  background-color: #00f7ff; /* Background color of the button */
+  color: white; /* Text color */
+  border: none;
+  cursor: pointer; /* Indicates it's clickable */
+  border-radius: 5px; /* Rounded corners */
+  text-align: center;
+  text-decoration: none; /* Remove underline from link */
+  display: inline-block;
+}

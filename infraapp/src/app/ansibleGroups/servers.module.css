@@ -1,0 +1,77 @@
+/* servers.module.css */
+.serversPage {
+  padding: 20px;
+  background-color: #282c34; /* Setting the background color */
+  min-height: 100vh; /* Ensure it covers the full height of the page */
+  color: #fff; /* Adjusting the text color for better readability */
+}
+.serversContainer {
+  margin-top: 20px;
+}
+
+.serverTable .link {
+  color: white; /* or any other color you prefer for the normal state */
+  text-decoration: none; /* to ensure it doesn't look like a link by default */
+  cursor: pointer; /* changes cursor to indicate it's clickable */
+}
+
+.serverTable .link:hover {
+  color: blue; /* classic link color when hovered */
+  text-decoration: underline; /* underlines the text on hover */
+}
+
+.serverTable {
+  margin-top: 30px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.serverTable a {
+  color: white; /* or any other color you prefer for the normal state */
+  text-decoration: none; /* to ensure it doesn't look like a link by default */
+  cursor: pointer; /* changes cursor to indicate it's clickable */
+}
+
+.serverTable a:hover {
+  color: blue; /* classic link color when hovered */
+  text-decoration: underline; /* underlines the text on hover */
+}
+
+.serverTable th,
+.serverTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.serverTable th {
+  background-color: #add8e6; /* Light blue background for header */
+  color: black;
+}
+
+.serverTable tr {
+  background-color: black; /* Black background for rows */
+  color: white; /* White text */
+}
+
+.serverTable tr:nth-child(even) {
+  background-color: black; /* Ensure even rows are also black */
+}
+
+.serverTable tr:hover {
+  background-color: #666; /* Slightly lighter black for hover */
+}
+
+.addServerLink {
+  position: absolute;
+  top: 70px; /* Adjust as needed for exact positioning */
+  right: 10px; /* Adjust as needed for exact positioning */
+  padding: 10px; /* Padding inside the button */
+  background-color: #007bff; /* Background color of the button */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  text-align: center;
+  text-decoration: none; /* Remove underline from link */
+  display: inline-block;
+}

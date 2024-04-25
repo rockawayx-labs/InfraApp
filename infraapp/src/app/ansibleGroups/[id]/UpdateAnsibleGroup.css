@@ -1,0 +1,44 @@
+.update-ansible-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full viewport width */
+}
+
+.update-ansible-group form {
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Box shadow for depth */
+  max-width: 500px; /* Maximum width */
+  width: 100%; /* Responsive width */
+  margin: 20px; /* Margin around the form */
+  box-sizing: border-box; /* Ensures padding doesn't affect the width */
+}
+
+.update-ansible-group label,
+.update-ansible-group input[type="checkbox"],
+.update-ansible-group input[type="text"],
+.update-ansible-group button {
+  color: white;
+  margin-bottom: 10px;
+  display: block; /* Makes the form elements block-level */
+}
+
+.update-ansible-group input[type="text"],
+.update-ansible-group input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.update-ansible-group button {
+  background-color: #007bff; /* Button background color */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.update-ansible-group button:hover {
+  background-color: #0056b3; /* Button hover color */
+}

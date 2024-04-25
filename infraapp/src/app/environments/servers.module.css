@@ -1,0 +1,79 @@
+/* servers.module.css */
+.serversPage {
+  display: flex;
+  justify-content: center;
+  padding-top: 160px;
+  align-items: flex-start; /* Align items to start */
+  min-height: 100vh; /* Use min-height instead of height */
+  background-color: #282c34; /* Keep your color preference */
+  color: white;
+  overflow: auto; /* Enable scrolling */
+}
+
+.serversContainer {
+  text-align: center;
+  width: 50%;
+}
+.serversHeading {
+  margin-bottom: 10px; /* Space after 'Servers' heading */
+  text-align: left;
+}
+
+.serverBox {
+  border: 1px solid white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  background-color: black;
+  /* Additional styles */
+}
+
+.environmentName {
+  margin-bottom: 1em; /* Adjusts the space below the environment name */
+}
+
+.serverBox h3 {
+  text-align: left; /* Align 'Servers' to the left */
+  margin-left: 10px; /* Adjust this value as needed */
+}
+
+.serverBox ul {
+  padding: 0;
+}
+
+.serverBox li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 30px; /* Position 'Hostname:' a bit to the right */
+  margin-bottom: 10px;
+}
+
+.serverBox li label {
+  margin-right: 10px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.addServerLink {
+  position: absolute;
+  top: 70px; /* Adjust as needed for exact positioning */
+  right: 10px; /* Adjust as needed for exact positioning */
+  padding: 10px; /* Padding inside the button */
+  background-color: #007bff; /* Background color of the button */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  text-align: center;
+  text-decoration: none; /* Remove underline from link */
+  display: inline-block;
+}
