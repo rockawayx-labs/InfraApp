@@ -1,0 +1,81 @@
+/* servers.module.css */
+.serversPage {
+    display: flex;
+    justify-content: center;
+    padding-top: 160px;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #282c34;
+    color: white;
+    overflow: auto;
+  }
+  
+  .serversContainer {
+    text-align: center;
+    width: 50%;
+  }
+  
+  .serversHeading {
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+  }
+  
+  .modalContent {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modalContent ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .modalContent li {
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #444;
+    color: white;
+  }
+  
+  .modalContent li:hover {
+    background-color: lightblue;
+    color: black;
+  }
+  
+  .addServerLink {
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .link {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .link:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  
