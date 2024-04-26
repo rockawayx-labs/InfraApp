@@ -39,6 +39,11 @@ export default function Nav() {
               <a className={styles.navLink}>Software Versions</a>
             </Link>
           </li>
+          <li className={styles.navItem}>
+            <Link href="/ecosystems" legacyBehavior>
+              <a className={styles.navLink}>Ecosystems</a>
+            </Link>
+          </li>
         </ul>
       </div>
       <button onClick={() => signOut()} className={styles.signOutButton}>

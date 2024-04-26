@@ -1,0 +1,64 @@
+/* Base styling for the ecosystems page */
+.serversPage {
+  display: flex;
+  justify-content: center;
+  padding-top: 160px;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: #282c34;
+  color: white;
+  overflow: auto;
+}
+
+/* Container for ecosystems listing */
+.serversContainer {
+  text-align: center;
+  width: 50%;
+}
+
+/* Styling for each ecosystem box */
+.serverBox {
+  border: 1px solid white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  background-color: black;
+}
+
+/* Styling for the ecosystem name */
+.environmentName {
+  margin-bottom: 1em;
+}
+
+/* Styling for the heading above ansible groups list */
+.serversHeading {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Specific styles for unordered list inside server box */
+.serverBox ul {
+  padding: 0;
+}
+
+/* List item styling */
+.serverBox li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+
+/* Links styling */
+.link {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hover effect for links */
+.link:hover {
+  color: blue;
+  text-decoration: underline;
+}
