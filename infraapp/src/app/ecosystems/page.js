@@ -1,60 +1,47 @@
-"use client";
-import React, { useState, useEffect } from "react";
+"use client"
 import Link from "next/link";
-import styles from "./servers.module.css";
+import React from "react";
+import styles from "./ecosystems.module.css"; // Assuming you have similar styling as servers.module.css
 
-async function fetchEcosystems() {
-  const response = await fetch("/api/ecosystems");
-  if (!response.ok) {
-    throw new Error("Failed to fetch ecosystems");
+async function getEcosystems() {
+  const res = await fetch('/api/ecosystems');
+  if (!res.ok) {
+    throw new Error('Failed to fetch');
   }
-  return response.json();
-}
-
-function EcosystemList({ ecosystems }) {
-  return (
-    <div>
-      {ecosystems.map((ecosystem) => (
-        <div key={ecosystem.id}>
-          <h2>{ecosystem.name}</h2>
-          <ul>
-            {ecosystem.groups.map(group => (
-              <li key={group.id}>{group.name}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  );
+  return await res.json();
 }
 
 export default function Ecosystems() {
-  const [ecosystems, setEcosystems] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+  const [ecosystems, setEcosystems] = React.useState([]);
 
-  useEffect(() => {
-    fetchEcosystems().then(setEcosystems);
+  React.useEffect(() => {
+    getEcosystems().then(setEcosystems).catch(console.error);
   }, []);
 
   return (
     <main className={styles.serversPage}>
-      <div className={styles.addServerLink}>
-        <Link href="/addEcosystem" className={styles.link}>Add Ecosystem</Link>
-      </div>
       <div className={styles.serversContainer}>
         <h1>Ecosystems</h1>
-        <EcosystemList ecosystems={ecosystems} />
+        {ecosystems.map((ecosystem) => (
+          <div className={styles.serverBox} key={ecosystem.id}>
+            <h2 className={styles.environmentName}>
+              <Link href={`/ecosystems/${ecosystem.id}`} className={styles.link}>
+                {ecosystem.name}
+              </Link>
+            </h2>
+            <h3 className={styles.serversHeading}>Ansible Groups:</h3>
+            <ul style={{ listStyleType: "none" }}>
+              {ecosystem.groups.map((group) => (
+                <li key={group.id}>
+                  <Link href={`/ansibleGroups/${group.id}`} className={styles.link}>
+                    {group.group_name || 'Unnamed Group'}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
-      {showModal && (
-        <EcosystemModal
-          ecosystems={ecosystems}
-          onSelect={(selectedEcosystem) => {
-            console.log("Ecosystem selected:", selectedEcosystem.name);
-            setShowModal(false);
-          }}
-          onClose={() => setShowModal(false)}
-        />
-      )}
     </main>
   );
 }

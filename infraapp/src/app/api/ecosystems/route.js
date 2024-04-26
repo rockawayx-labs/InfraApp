@@ -1,3 +1,5 @@
+import prisma from "../../../../lib/prisma";
+
 export async function GET(req) {
   const ecosystems = await prisma.Ecosystem.findMany({
     orderBy: {
