@@ -1,0 +1,87 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["jsonProtocol"]
+}
+
+model Ecosystem {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  groups AnsibleGroup[]
+}
+
+model AnsibleGroup {
+  id            Int        @id @default(autoincrement())
+  group_name    String? @unique
+  ecosystem     Ecosystem?  @relation(fields: [ecosystem_id], references: [id])
+  ecosystem_id  Int
+  servers       Server[]
+  softwares     Software[]
+}
+
+model Server {
+  id               Int          @id @default(autoincrement())
+  hostname         String @unique
+  ansible_group    AnsibleGroup? @relation(fields: [ansible_group_id], references: [id])
+  ansible_group_id Int?
+  date_created     DateTime
+  date_changed     DateTime
+  environment      Environment?  @relation(fields: [environment_id], references: [id])
+  environment_id   Int?
+  softwares SoftwareVersion[] @relation("serverSoftware")
+}
+
+model Environment {
+  id       Int        @id @default(autoincrement())
+  name     String @unique
+  servers  Server[]
+  approvals Approval[]
+}
+
+model Software {
+  id                   Int               @id @default(autoincrement())
+  name                 String
+  approved_version_test  SoftwareVersion? @relation("approvedVersionTest") 
+  approved_version_main  SoftwareVersion? @relation("approvedVersionMain")
+  newest_version        SoftwareVersion? @relation("newestVersion")
+  versions             SoftwareVersion[] @relation("software")
+  github        String?
+  ansible_groups AnsibleGroup[]
+}
+
+model SoftwareVersion {
+  id            Int        @id @default(autoincrement())
+  name          String
+  github        String?
+  creator String?
+  last_editor String?
+  date_created  DateTime
+  last_change   DateTime  
+  latest_release String?
+  software    Software?  @relation("software", fields: [software_id], references: [id])
+  software_id   Int?
+  approved_version_test Software? @relation("approvedVersionTest", fields: [approved_version_test_Id], references: [id])
+  approved_version_test_Id Int? @unique
+  approved_version_main Software? @relation("approvedVersionMain", fields: [approved_version_main_Id], references: [id])
+  approved_version_main_Id Int? @unique
+  newest_version Software? @relation("newestVersion", fields: [newest_version_Id], references: [id])
+  newest_version_Id Int? @unique
+  servers Server[] @relation("serverSoftware")
+  approvals Approval[]
+  approved Boolean?
+}
+
+model Approval {
+  id             Int          @id @default(autoincrement())
+  approver String?
+  date           DateTime
+  environment    Environment?  @relation(fields: [environment_id], references: [id])
+  environment_id Int
+  software_version SoftwareVersion? @relation(fields: [software_version_id], references: [id])
+  software_version_id Int?
+}

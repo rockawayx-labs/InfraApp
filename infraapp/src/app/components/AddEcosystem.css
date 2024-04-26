@@ -1,0 +1,55 @@
+/* AddEcosystem.css */
+
+.add-ecosystem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: grey; /* Grey background for the whole page */
+  }
+  
+  .add-ecosystem form {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #333; /* Dark grey background for the form */
+    color: white; /* White text color */
+    max-width: 500px;
+    width: 100%; /* Ensures form takes full width of the container */
+  }
+  
+  .add-ecosystem label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: larger;
+    color: white; /* White color for the text labels */
+  }
+  
+  .add-ecosystem input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white for the input background */
+    border: none;
+    color: white; /* White text inside input */
+  }
+  
+  .add-ecosystem button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #007bff; /* Bright blue background for the button */
+    color: white;
+    font-size: larger;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .add-ecosystem button:hover {
+    background-color: #0056b3; /* Darker blue on hover for the button */
+  }
+  
+  /* Specific margins and alignments can be added or adjusted as per layout needs */
+  
