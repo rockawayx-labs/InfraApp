@@ -62,3 +62,17 @@
   color: blue;
   text-decoration: underline;
 }
+
+.addServerLink {
+  position: absolute;
+  top: 70px; /* Adjust as needed for exact positioning */
+  right: 10px; /* Adjust as needed for exact positioning */
+  padding: 10px; /* Padding inside the button */
+  background-color: #007bff; /* Background color of the button */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  text-align: center;
+  text-decoration: none; /* Remove underline from link */
+  display: inline-block;
+}

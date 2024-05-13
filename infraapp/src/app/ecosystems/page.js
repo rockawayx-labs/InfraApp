@@ -20,6 +20,9 @@ export default function Ecosystems() {
 
   return (
     <main className={styles.serversPage}>
+      <div className={styles.addServerLink}>
+        <Link href={"/addEcosystem"}>Add ecosystem</Link>
+      </div>
       <div className={styles.serversContainer}>
         <h1>Ecosystems</h1>
         {ecosystems.map((ecosystem) => (
