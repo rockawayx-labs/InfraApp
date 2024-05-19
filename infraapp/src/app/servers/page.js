@@ -93,7 +93,6 @@ export default function Servers() {
   const [selectedEnvironment, setSelectedEnvironment] = useState(null);
   const [showGroupModal, setShowGroupModal] = useState(false);
   const [showEnvironmentModal, setShowEnvironmentModal] = useState(false);
-  const [gitHubReleases, setGitHubReleases] = useState({});
 
   const deleteServer = async (serverId) => {
     const confirmDelete = window.confirm(
@@ -119,21 +118,6 @@ export default function Servers() {
   useEffect(() => {
     fetchServers().then((data) => {
       setServers(data);
-      data.forEach((server) => {
-        server.softwares.forEach((softwareVersion) => {
-          if (softwareVersion.software?.github) {
-            const apiUrl = `/api/github-latest-release/repoUrl=${softwareVersion.software.github}`;
-            fetch(apiUrl)
-              .then((response) => response.json())
-              .then((gitHubRelease) => {
-                setGitHubReleases((prevReleases) => ({
-                  ...prevReleases,
-                  [softwareVersion.id]: gitHubRelease.latestRelease,
-                }));
-              });
-          }
-        });
-      });
     });
   }, []);
 
@@ -153,6 +137,7 @@ export default function Servers() {
       (!selectedEnvironment || server.environment_id === selectedEnvironment.id)
     );
   });
+
   return (
     <main className={styles.serversPage}>
       <div className={styles.addServerLink}>
@@ -220,7 +205,7 @@ export default function Servers() {
                           className={styles.link}
                           style={{
                             backgroundColor:
-                              gitHubReleases[softwareVersion.id] ===
+                              softwareVersion.software?.latest_release ===
                               softwareVersion.name
                                 ? "green"
                                 : "red",

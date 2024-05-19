@@ -1,7 +1,5 @@
 export async function POST(req) {
   try {
-    console.log("printing body");
-    console.log(req.body);
 
     const buffers = [];
     for await (const chunk of req.body) {

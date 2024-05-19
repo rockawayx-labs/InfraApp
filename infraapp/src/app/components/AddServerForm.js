@@ -246,7 +246,6 @@ function AddServerForm() {
               );
               setSelectedSoftwareVersions(selectedOptions);
             }}
-            required
           >
             {softwareVersions.map((version) => (
               <option key={version.id} value={version.id}>

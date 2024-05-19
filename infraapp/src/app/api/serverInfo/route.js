@@ -23,13 +23,73 @@ export async function POST(req, { params }) {
     const { server, software, version } = extractInfo(JSON.stringify(body));
 
 
+
   
     try {
-      // Perform your data processing here
-      console.log('Received data:');
-      console.log('Server:', server);
-      console.log('Software:', software);
-      console.log('Version:', version);
+      
+      const existingServer = await prisma.server.findUnique({
+        where: {
+          hostname: server,
+        },
+        include: {
+          softwares: {
+            include: {
+              software: true,
+            },
+          },
+        },
+      });
+
+      if (!existingServer) {
+        return new Response(
+          JSON.stringify({ error: 'Server not found' }),
+          {
+            status: 404,
+            headers: { 'Content-Type': 'application/json' },
+          }
+        );
+      }
+
+      const existingSoftwareVersion = await prisma.softwareVersion.findFirst({
+        where: {
+          name: version,
+          software: {
+            name: software.toLowerCase(),
+          },
+        },
+      });
+  
+      if (!existingSoftwareVersion) {
+        return new Response(
+          JSON.stringify({ error: 'Software version not found or does not match the software name' }),
+          {
+            status: 404,
+            headers: { 'Content-Type': 'application/json' },
+          }
+        );
+      }
+
+      console.log(existingSoftwareVersion);
+  
+
+      const updatedSoftwares = existingServer.softwares.filter(
+        (sv) => sv.software.name !== software.toLowerCase()
+      ).map((sv) => ({ id: sv.id }));
+  
+      // Add the new software version to the server
+      updatedSoftwares.push({ id: existingSoftwareVersion.id });
+  
+      // Update the server's software versions
+      await prisma.server.update({
+        where: {
+          id: existingServer.id,
+        },
+        data: {
+          softwares: {
+            set: updatedSoftwares.map((sv) => ({ id: sv.id })),
+          },
+        },
+      });
   
       // Send a success response
       return new Response(
